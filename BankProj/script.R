@@ -53,12 +53,3 @@ cm.final <- confusionMatrix(predict(fit.tree.final, type="class"), bank$churn)
 cm.final$table
 accuracy.final <- sum(diag(cm.final$table))/sum(cm.final$table)
 accuracy.final  # accuracy ottima con un modello efficiente
-
-
-# costruzione di un grafico per capire se c'è correlazione fra numero di prodotti, età e churn
-cols <- ifelse(bank$churn == 0, "blue", "red")
-plot(bank$products_number, bank$age, col=cols, pch=20, 
-     ylab="Eta'", xlab = "Numero di prodotti")
-legend("topright", c("will churn", "won't churn"), pch = 20,
-       col=c("blue", "red"), bty = "n")
-
